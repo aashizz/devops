@@ -1,0 +1,11 @@
+➔ Consistent Environments: Docker ensures consistent development and
+deployment environments, minimizing "it works on my machine" issues
+and providing a reliable setup for developers across different stages.
+➔ Efficient Resource Utilization: The multi-stage Docker build allows for
+a smaller final image, reducing the container's size and optimizing
+resource utilization. This results in faster deployment times and more
+efficient use of system resources.
+➔ Automated Deployment Pipeline: The Jenkins pipeline automates the
+build, testing, and deployment processes, improving efficiency and
+reducing manual errors. This streamlined automation enhances the
+reliability and speed of delivering updates to production.
