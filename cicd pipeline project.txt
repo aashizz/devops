@@ -1,0 +1,41 @@
+ECR CODE SYNTAX
+
+sudo aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 762233745246.dkr.ecr.ap-south-1.amazonaws.com
+
+
+SHELL CODE
+
+git clone https://github.com/krishnansai/docker-test.git
+cp -r ./docker-test/*.
+sudo docker build -t test .
+sudo aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 762233745246.dkr.ecr.ap-south-1.amazonaws.com
+sudo docker tag test 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker push 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker run -d -p 80:80 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+
+
+***CI/CD Jenkins Final Shell code
+
+rm -rf docker-test
+git clone https://github.com/krishnansai/docker-test.git
+cp -r ./docker-test/* .
+sudo docker build -t test .
+aws ecr get-login-password --region ap-south-1 |sudo docker login --username AWS --password-stdin 762233745246.dkr.ecr.ap-south-1.amazonaws.com
+sudo docker tag test 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker push 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker run -d -p 80:80 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+
+
+***After Changes in Website Color Shell code
+
+rm -rf docker-test
+git clone https://github.com/krishnansai/docker-test.git
+cp -r ./docker-test/* .
+sudo docker build -t test .
+aws ecr get-login-password --region ap-south-1 |sudo docker login --username AWS --password-stdin 762233745246.dkr.ecr.ap-south-1.amazonaws.com
+sudo docker tag test 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker push 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
+sudo docker run -d httpd
+sudo docker stop $(sudo docker ps -a -q)
+sudo docker rm $(sudo docker ps -a -q)
+sudo docker run -d -p 80:80 762233745246.dkr.ecr.ap-south-1.amazonaws.com/mytestimage
